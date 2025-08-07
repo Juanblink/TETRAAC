@@ -1,0 +1,14 @@
+export default `<!doctype html>
+<html lang="en" data-beasties-container="">
+<head>
+  <meta charset="utf-8">
+  <title>TETRAAC</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>html,body{margin:0;padding:0;height:100%;font-family:Segoe UI,Roboto,sans-serif;background-color:#130c2e;color:#fff;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><ellipse cx='300' cy='300' rx='250' ry='100' transform='rotate(-30 300 300)' fill='none' stroke='%23e6001222' stroke-width='4'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23e6001222' font-size='80' font-weight='bold' transform='rotate(-30 300 300)'>TETRA</text></svg>");background-repeat:no-repeat;background-position:center;background-attachment:fixed;background-size:600px;scroll-behavior:smooth}</style><link rel="stylesheet" href="styles-563RFOBF.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-563RFOBF.css"></noscript></head>
+<body ngcm="">
+  <app-root></app-root>
+<script src="polyfills-B6TNHZQ6.js" type="module"></script><script src="main-4YHXAPPF.js" type="module"></script></body>
+</html>
+`;
