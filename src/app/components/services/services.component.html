@@ -1,0 +1,77 @@
+<section class="services-section" aria-labelledby="section-title-services">
+  <h2 class="section-title" id="section-title-services">Nuestros Servicios</h2>
+
+  <div class="carousel-wrapper">
+    <button class="carousel-btn left" (click)="scrollCarousel('left')" aria-label="Servicio anterior">
+      <span aria-hidden="true">‹</span>
+    </button>
+
+    <div class="services-carousel" #carousel role="region" aria-roledescription="carrusel" aria-label="Lista de servicios">
+      <article class="service-card" role="group" aria-roledescription="tarjeta">
+        <h3>Capacitación Docente</h3>
+        <p>
+          Cursos y talleres personalizados en Español e Inglés según las necesidades de cada escuela.
+        </p>
+        <ul>
+          <li>Liderazgo</li>
+          <li>Comunicación Asertiva</li>
+          <li>Inclusión</li>
+          <li>Evaluación Formativa</li>
+          <li>Inteligencia Emocional</li>
+          <li>Educación Personalizada</li>
+        </ul>
+      </article>
+
+      <article class="service-card" role="group" aria-roledescription="tarjeta">
+        <h3>Certificaciones Internacionales</h3>
+        <p>
+          Preparamos candidatos para certificaciones de dominio del inglés y enseñanza.
+        </p>
+        <ul>
+          <li>Cambridge ESOL</li>
+          <li>TOEFL</li>
+          <li>TOEIC</li>
+          <li>IELTS</li>
+          <li>CENNI</li>
+        </ul>
+      </article>
+
+      <article class="service-card" role="group" aria-roledescription="tarjeta">
+        <h3>Clases de Inglés</h3>
+        <p>
+          Clases particulares y empresariales personalizadas para alcanzar tus metas.
+        </p>
+        <ul>
+          <li>Business English</li>
+          <li>Conversational English</li>
+          <li>English for Specific Purposes</li>
+        </ul>
+      </article>
+
+      <article class="service-card" role="group" aria-roledescription="tarjeta">
+        <h3>Consultoría Educativa</h3>
+        <p>
+          Asesoría académica-pedagógica especializada y diseño curricular a medida.
+        </p>
+      </article>
+
+      <article class="service-card" role="group" aria-roledescription="tarjeta">
+        <h3>Diseño Curricular</h3>
+        <p>
+          Planeación y estructuración metodológica alineada a objetivos institucionales.
+        </p>
+      </article>
+
+      <article class="service-card" role="group" aria-roledescription="tarjeta">
+        <h3>WOWing Your Students</h3>
+        <p>
+          Participa en nuestro magno evento anual y renueva tus técnicas de enseñanza.
+        </p>
+      </article>
+    </div>
+
+    <button class="carousel-btn right" (click)="scrollCarousel('right')" aria-label="Siguiente servicio">
+      <span aria-hidden="true">›</span>
+    </button>
+  </div>
+</section>
