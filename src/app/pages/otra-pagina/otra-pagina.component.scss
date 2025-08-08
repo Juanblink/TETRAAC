@@ -1,0 +1,27 @@
+.page-section {
+  padding: 4rem 2rem;
+  min-height: 80vh;
+  background-color: #0d0b26;
+  color: #ffffff;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #e60012;
+}
+
+.page-description {
+  font-size: 1.2rem;
+  color: #dddddd;
+  margin-bottom: 2rem;
+}
+
+.info-box {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}

@@ -1,201 +1,323 @@
-/* =================================
-   RESET Y CONFIGURACIÓN GENERAL
-   ================================= */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
-}
+/* --- Importar la Fuente (añadir al <head> de tu HTML si no está ya) --- */
+/*
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+*/
 
-/* =================================
-   CONTENEDOR PRINCIPAL DE LA SECCIÓN
-   ================================= */
+/* --- Estilos de la Sección de Servicios --- */
 .services-section {
-  color: #ffffff;
-  min-height: 100vh; /* Usa min-height para flexibilidad en pantallas pequeñas */
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  position: relative;
+  /* --- Definición de variables de tu Hero Banner para consistencia --- */
+  --color-primary: #e60012;
+  --color-dark-accent: #1b024a;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* --- Estilos aplicados --- */
+  font-family: var(--font-sans);
+  background-color: #F8F9FA; /* Fondo claro para contraste */
+  padding: 80px 20px;
   text-align: center;
 }
 
-/* Fondo con efecto blur y superposición oscura */
-.services-section::before,
-.services-section::after {
-  content: "";
-  position: absolute;
-  inset: 0; /* Abarca todo el contenedor (top, right, bottom, left: 0) */
-  z-index: -2;
-}
-
-.services-section::before {
-  background-image: url('https://i.ibb.co/KxB8BZKM/image.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px) brightness(0.4); /* Ajuste sutil del efecto */
-}
-
-.services-section::after {
-  background-color: rgba(0, 25, 50, 0.5); /* Superposición para contraste */
-  z-index: -1;
+/* --- Encabezado de la Sección --- */
+.section-header {
+  max-width: 700px;
+  margin: 0 auto 60px auto;
 }
 
 .section-title {
-  font-size: clamp(1.8rem, 5vw, 2.5rem); /* Tamaño de fuente responsivo */
-  font-weight: bold;
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text-main);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.6s 0.6s backwards;
+
+    .highlight {
+      color: var(--color-primary);
+    }
 }
 
-/* =================================
-   ESTRUCTURA DEL CARRUSEL
-   ================================= */
-.carousel-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  max-width: 1200px; /* Ancho máximo para el contenido del carrusel */
+.section-title .icon {
+  font-size: 3rem;
+  color: var(--color-primary); /* El ícono lleva el color primario (rojo) */
 }
 
-.services-carousel {
+.section-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--color-text-light);
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+    animation: fadeInUp 0.6s 0.8s backwards;
+}
+
+/* --- Contenedor de las Tarjetas de Servicio (Grid Responsivo) --- */
+.services-grid {
   display: grid;
-  grid-auto-flow: column; /* Alinea los elementos en una fila horizontal */
-  gap: 1.5rem;             /* Espacio entre tarjetas */
-  
-  /* Permite el scroll horizontal y lo "suaviza" */
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-
-  /* Oculta la barra de scroll de forma cross-browser */
-  -ms-overflow-style: none;  /* IE y Edge */
-  scrollbar-width: none;     /* Firefox */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.services-carousel::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+/* --- Estilo Individual de cada Tarjeta --- */
+/* =========================================================
+   Base tokens (ajusta a tu brand system)
+   ========================================================= */
+:root {
+  --brand: #e60012;
+  --brand-ink: #9e000c;
+  --radius: 16px;
+  --surface: #ffffff;
+  --ink: #1d1f23;
+  --muted-ink: #555a64;
+  --border: #e9ecef;
+
+  --elev-1: 0 6px 16px rgba(0,0,0,.06);
+  --elev-2: 0 12px 28px rgba(0,0,0,.10);
+  --elev-brand: 0 18px 46px rgba(230, 0, 18, .18);
+
+  --card-pad: 28px;
+  --icon-bg: rgba(230,0,18,.08);
+  --ring: 2px solid rgba(230,0,18,.35);
 }
 
-/* =================================
-   BOTONES DE NAVEGACIÓN
-   ================================= */
-.carousel-btn {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-size: 1.5rem;
-  width: 45px;
-  height: 45px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  flex-shrink: 0; /* Evita que los botones se encojan */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: #101214;
+    --ink: #f3f4f6;
+    --muted-ink: #c3c7cf;
+    --border: #2b2f36;
+
+    --elev-1: 0 6px 16px rgba(0,0,0,.35);
+    --elev-2: 0 12px 28px rgba(0,0,0,.45);
+    --elev-brand: 0 18px 46px rgba(230,0,18,.30);
+
+    --icon-bg: rgba(230,0,18,.18);
+    --ring: 2px solid rgba(230,0,18,.55);
+  }
+}
+
+/* =========================================================
+   Grid responsivo para tarjetas (opcional)
+   ========================================================= */
+.services-grid {
   display: grid;
-  place-content: center;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  align-items: stretch;
 }
 
-.carousel-btn:hover,
-.carousel-btn:focus-visible {
-  background-color: #e60012;
-  border-color: #e60012;
-  transform: scale(1.1);
-}
-
-/* =================================
-   TARJETAS DE SERVICIO
-   ================================= */
+/* =========================================================
+   Tarjeta
+   ========================================================= */
 .service-card {
-  scroll-snap-align: start; /* Alinea la tarjeta al inicio al hacer scroll */
-  
-  /* Estilo visual "Glassmorphism" */
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-top: 4px solid #e60012; /* Acento de color */
-  border-radius: 16px;
-  
-  /* Contenido flexible para que el texto nunca se corte */
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1.5rem; /* Más padding vertical que horizontal */
-  height: 100%; /* La tarjeta ocupa toda la altura de su fila */
-  
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: left; /* Alinea el texto a la izquierda para mejor lectura */
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: var(--card-pad);
+
+  box-shadow: var(--elev-1);
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+  will-change: transform, box-shadow;
+  text-align: left;
+  isolation: isolate; /* mejora sombras y overlays */
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-6px);
+  box-shadow: var(--elev-brand);
+  border-color: rgba(230,0,18,.25);
 }
 
-/* Contenido de texto dentro de la tarjeta */
+/* Focus accesible (teclado): */
+.service-card:focus-within {
+  outline: none;
+  box-shadow: var(--elev-2);
+  border-color: rgba(230,0,18,.45);
+}
+.service-card:focus-within::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: calc(var(--radius) + 4px);
+  pointer-events: none;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.65), 0 0 0 6px rgba(230,0,18,.28);
+}
+
+/* Icono/emoji/logotipo del servicio (opcional) */
+.service-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--icon-bg);
+  display: inline-grid;
+  place-items: center;
+  font-size: 24px;
+  color: var(--brand);
+  margin-bottom: 8px;
+}
+
+/* Título y texto */
 .service-card h3 {
-  font-size: clamp(1.2rem, 4vw, 1.4rem);
+  margin: 6px 0 6px;
+  font-size: clamp(1.1rem, 1rem + .6vw, 1.45rem);
+  line-height: 1.2;
   font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.service-card p,
-.service-card li {
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
-  color: #f0f0f0;
-  line-height: 1.6;
+  color: var(--brand);
 }
 
 .service-card p {
-  margin-bottom: 1rem;
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--muted-ink);
 }
 
-.service-card ul {
-  padding-left: 20px; /* Espacio estándar para listas */
-  list-style-type: '— '; /* Estilo de viñeta personalizado */
+/* CTA: botón/link primario dentro de la card */
+.service-card .card-cta {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--surface);
+  background: var(--brand);
+  border: 1px solid var(--brand-ink);
+  border-radius: 12px;
+  padding: 10px 14px;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 4px 10px rgba(230,0,18,.25);
 }
 
-.service-card li {
-  margin-bottom: 0.5rem;
+.service-card .card-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(230,0,18,.30);
+  background: linear-gradient(180deg, var(--brand), var(--brand-ink));
 }
 
-/* =================================
-   REGLAS RESPONSIVAS (MEDIA QUERIES)
-   ================================= */
+.service-card .card-cta:focus-visible {
+  outline: var(--ring);
+}
 
-/* --- VISTA MÓVIL (hasta 767px) --- */
-@media (max-width: 767px) {
-  .services-carousel {
-    /* Cada tarjeta ocupa el 100% del ancho -> 1 tarjeta visible */
-    grid-auto-columns: 100%;
-    /* Añade padding para que la tarjeta no pegue a los bordes del wrapper */
-    padding: 0 0.5rem;
-  }
-  
-  /* Escondemos los botones en móvil (el scroll es táctil) */
-  .carousel-btn {
-    display: none;
+/* Link secundario con flecha (ghost) */
+.service-card .card-link {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(230,0,18,.35);
+  padding-bottom: 2px;
+  transition: gap .2s ease, color .2s ease, border-color .2s ease;
+}
+.service-card .card-link:hover {
+  gap: 10px;
+  color: var(--brand-ink);
+  border-color: rgba(230,0,18,.6);
+}
+
+/* Estado destacado (opcional) */
+.service-card.--featured {
+  border-width: 2px;
+  border-color: rgba(230,0,18,.35);
+  box-shadow: var(--elev-brand);
+}
+.services-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 1fr; /* default: 1 columna */
+  align-items: stretch;
+}
+
+@media (min-width: 480px) {  /* móviles anchos */
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 768px) {  /* tablets */
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1200px) { /* desktop grande */
+  .services-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.service-card { height: 100%; }
+
+/* Animación reducida si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .service-card .card-cta,
+  .service-card .card-link {
+    transition: none !important;
+    transform: none !important;
   }
 }
 
-/* --- VISTA TABLET Y ESCRITORIO (desde 768px) --- */
-@media (min-width: 768px) {
-  .services-carousel {
-    /* Cada tarjeta ocupa ~50% del ancho -> 2 tarjetas visibles */
-    grid-auto-columns: calc(50% - 0.75rem); /* 50% menos la mitad del gap */
-    padding: 1rem; /* Padding interno para que las tarjetas "respiren" */
-  }
+/* --- Sección de Servicios --- */
+.services-section {
+  --color-primary: #e60012;
+  --color-dark-accent: #1b024a;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  .service-card {
-    min-height: 420px; /* Asegura una altura mínima consistente en desktop */
-  }
+  font-family: var(--font-sans);
+  background-color: #F8F9FA;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative; /* Necesario para que ::before se posicione dentro */
+  overflow: hidden; /* Evita que el blur sobresalga */
+}
+
+/* --- Fondo con imagen y blur --- */
+
+/* --- Sección de Servicios --- */
+.services-section {
+  --color-primary: #e60012;
+  --color-dark-accent: #1b024a;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  font-family: var(--font-sans);
+  background-color: #F8F9FA;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Fondo con imagen y blur --- */
+.services-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://i.ibb.co/0p4FDqrQ/2-cerrar-personas-estudiando-interiores.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.5);
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+/* --- Capa azul semitransparente --- */
+.services-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 30, 60, 0.5); /* Azul oscuro con opacidad */
+  z-index: 1;
+}
+
+/* --- Asegurar que el contenido esté encima del fondo y la capa azul --- */
+.services-section > * {
+  position: relative;
+  z-index: 2;
 }

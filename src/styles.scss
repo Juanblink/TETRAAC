@@ -1,16 +1,56 @@
+/* ==== Base para todas las secciones ==== */
+.hero-banner,
+.about-section,
+.services-section,
+.videos-section {
+  width: 100%;            /* Ocupa todo el ancho útil del contenedor */
+  max-width: 100vw;       /* Previene que se pase del viewport */
+  margin: 0;              /* Elimina márgenes externos */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center;     /* Centra horizontalmente */
+  padding: 3rem 2rem;      /* Espaciado interno uniforme */
+  box-sizing: border-box;  /* Incluye padding dentro del ancho total */
+}
+
+/* Desktop/laptop: secciones pantalla completa */
+@media (min-width: 769px) {
+  .hero-banner,
+  .about-section,
+  .services-section,
+  .videos-section {
+    min-height: 100svh; /* Mejor que 100vh para móviles modernos */
+  }
+}
+
+/* Móvil: altura natural con buen espaciado */
+@media (max-width: 768px) {
+  .hero-banner,
+  .about-section,
+  .services-section,
+  .videos-section {
+    min-height: auto;
+    padding: 2.5rem 1.25rem;
+  }
+}
+
+/* ==== Personalización de cada sección ==== */
+.hero-banner {
+  background: url('/assets/hero-bg.jpg') center/cover no-repeat;
+}
+
+
+
+.services-section {
+  background-color: #0b2d4e;
+  color: white;
+}
+
+
+/* Evita scroll horizontal */
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: 'Segoe UI', Roboto, sans-serif;
-  background-color: #130c2e;
-  color: white;
-
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><ellipse cx='300' cy='300' rx='250' ry='100' transform='rotate(-30 300 300)' fill='none' stroke='%23e6001222' stroke-width='4'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23e6001222' font-size='80' font-weight='bold' transform='rotate(-30 300 300)'>TETRA</text></svg>");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-size: 600px;
-
-  scroll-behavior: smooth;
+  overflow-x: hidden;
 }

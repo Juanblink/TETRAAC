@@ -1,35 +1,42 @@
-<section class="videos-section">
-  <div class="videos-grid">
-    <div class="video-card">
-      <div class="video-wrapper">
-        <iframe
-          src="https://player.vimeo.com/video/967292388?autoplay=0&loop=0&byline=0&portrait=0&title=0"
-          allowfullscreen
-          allowtransparency
-          allow="autoplay"
-        ></iframe>
-      </div>
-    </div>
+<section class="resources-section" aria-labelledby="resources-title">
+  <div class="resource-card" role="navigation" aria-label="Recursos">
+    <header class="resource-header">
+      <h2 id="resources-title">📂 Recursos</h2>
+    </header>
 
-    <div class="video-card">
-      <div class="video-wrapper">
-        <iframe
-          src="https://player.vimeo.com/video/967292218?autoplay=0&loop=0&byline=0&portrait=0&title=0"
-          allowfullscreen
-          allowtransparency
-          allow="autoplay"
-        ></iframe>
-      </div>
-    </div>
+    <ul class="resource-list">
+      <li>
+        <a href="#" class="resource-item">
+          <span class="left">
+            <span class="emoji" aria-hidden="true">📝</span>
+            <span class="text">
+              <span class="title">Blog / Artículos</span>
+            </span>
+          </span>
+        </a>
+      </li>
 
-    <div class="video-card">
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/IKf21MLQ3hI?origin=yourdomain.com&iv_load_policy=3&modestbranding=1&rel=0"
-          allowfullscreen
-          allow="autoplay"
-        ></iframe>
-      </div>
-    </div>
+      <li>
+        <a href="#" class="resource-item">
+          <span class="left">
+            <span class="emoji" aria-hidden="true">📦</span>
+            <span class="text">
+              <span class="title">Materiales descargables</span>
+            </span>
+          </span>
+        </a>
+      </li>
+
+      <li>
+<button class="resource-item" [routerLink]="'/book'">
+  📚 Libro: “Whatchumean?! Whatchusay?!”
+</button>
+
+
+
+
+
+      </li>
+    </ul>
   </div>
 </section>

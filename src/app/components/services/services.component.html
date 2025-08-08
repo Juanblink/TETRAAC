@@ -1,77 +1,40 @@
 <section class="services-section" aria-labelledby="section-title-services">
-  <h2 class="section-title" id="section-title-services">Nuestros Servicios</h2>
+  <div class="section-header">
+    <h2 class="section-title" id="section-title-services">
+      <span class="icon" aria-hidden="true"></span> Nuestros Servicios
+    </h2>
+    <p class="section-subtitle">
+      Soluciones integrales para potenciar el desarrollo educativo y profesional.
+    </p>
+  </div>
 
-  <div class="carousel-wrapper">
-    <button class="carousel-btn left" (click)="scrollCarousel('left')" aria-label="Servicio anterior">
-      <span aria-hidden="true">‹</span>
-    </button>
+  <div class="services-grid" role="list">
+    <article class="service-card" role="listitem" aria-labelledby="svc-capacitacion-title">
+      <h3 id="svc-capacitacion-title">Capacitación Docente</h3>
+      <p>
+        Ofrecemos cursos y talleres a la medida, en español e inglés, para fortalecer habilidades clave como liderazgo, comunicación, inclusión y evaluación formativa en tu equipo.
+      </p>
+    </article>
 
-    <div class="services-carousel" #carousel role="region" aria-roledescription="carrusel" aria-label="Lista de servicios">
-      <article class="service-card" role="group" aria-roledescription="tarjeta">
-        <h3>Capacitación Docente</h3>
-        <p>
-          Cursos y talleres personalizados en Español e Inglés según las necesidades de cada escuela.
-        </p>
-        <ul>
-          <li>Liderazgo</li>
-          <li>Comunicación Asertiva</li>
-          <li>Inclusión</li>
-          <li>Evaluación Formativa</li>
-          <li>Inteligencia Emocional</li>
-          <li>Educación Personalizada</li>
-        </ul>
-      </article>
+    <article class="service-card" role="listitem" aria-labelledby="svc-consultoria-title">
+      <h3 id="svc-consultoria-title">Consultoría Institucional</h3>
+      <p>
+        Brindamos asesoría académico-pedagógica y desarrollamos un diseño curricular alineado a los objetivos de tu institución para garantizar la excelencia educativa.
+      </p>
+    </article>
 
-      <article class="service-card" role="group" aria-roledescription="tarjeta">
-        <h3>Certificaciones Internacionales</h3>
-        <p>
-          Preparamos candidatos para certificaciones de dominio del inglés y enseñanza.
-        </p>
-        <ul>
-          <li>Cambridge ESOL</li>
-          <li>TOEFL</li>
-          <li>TOEIC</li>
-          <li>IELTS</li>
-          <li>CENNI</li>
-        </ul>
-      </article>
+    <article class="service-card" role="listitem" aria-labelledby="svc-certificacion-title">
+      <h3 id="svc-certificacion-title">Certificación en Inglés</h3>
+      <p>
+        Preparamos a tus candidatos para obtener certificaciones de validez internacional que acreditan su dominio del idioma inglés, como Cambridge ESOL, TOEFL y más.
+      </p>
+    </article>
 
-      <article class="service-card" role="group" aria-roledescription="tarjeta">
-        <h3>Clases de Inglés</h3>
-        <p>
-          Clases particulares y empresariales personalizadas para alcanzar tus metas.
-        </p>
-        <ul>
-          <li>Business English</li>
-          <li>Conversational English</li>
-          <li>English for Specific Purposes</li>
-        </ul>
-      </article>
-
-      <article class="service-card" role="group" aria-roledescription="tarjeta">
-        <h3>Consultoría Educativa</h3>
-        <p>
-          Asesoría académica-pedagógica especializada y diseño curricular a medida.
-        </p>
-      </article>
-
-      <article class="service-card" role="group" aria-roledescription="tarjeta">
-        <h3>Diseño Curricular</h3>
-        <p>
-          Planeación y estructuración metodológica alineada a objetivos institucionales.
-        </p>
-      </article>
-
-      <article class="service-card" role="group" aria-roledescription="tarjeta">
-        <h3>WOWing Your Students</h3>
-        <p>
-          Participa en nuestro magno evento anual y renueva tus técnicas de enseñanza.
-        </p>
-      </article>
-    </div>
-
-    <button class="carousel-btn right" (click)="scrollCarousel('right')" aria-label="Siguiente servicio">
-      <span aria-hidden="true">›</span>
-    </button>
+    <article class="service-card" role="listitem" aria-labelledby="svc-clases-title">
+      <h3 id="svc-clases-title">Clases Particulares y Empresariales</h3>
+      <p>
+        Diseñamos clases de inglés personalizadas, tanto individuales como para equipos de trabajo, enfocadas en alcanzar metas específicas (negocios, conversación, etc.).
+      </p>
+    </article>
   </div>
 </section>
