@@ -1,163 +1,106 @@
-/* =========================
-   Recursos (Glass + Grid)
-   ========================= */
-
-/* Contenedor general + fondo */
 .resources-section {
-  padding: 2rem 1rem;
-  background: linear-gradient(to right, #0b071b, #130c2e); /* degradado oscuro */
+  position: relative;
+  min-height: 300px;
+  padding: 3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: clip; /* o hidden para compatibilidad antigua */
+  background: none;
 }
 
-/* Card (glassmorphism) */
-.resource-card {
-  max-width: 1100px;
-  margin: 0 auto;
-  background: rgba(14, 26, 43, 0.6);               /* transparencia */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #fff;
+.resources-section::before {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  background: 
+    linear-gradient(rgba(2, 37, 71, 0.541), rgba(3, 56, 109, 0.4)), /* capa azul */
+    url('https://i.ibb.co/39mXz0cV/ordinateur-livres-poste-de-travai.jpg') 
+    center/cover no-repeat;
+  filter: blur(12px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.overlay {
+  position: relative;
+  z-index: 1;
+  background: rgba(0,0,0,.6);
+  padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.2);
-  padding: clamp(1rem, 2vw, 1.5rem);
-
-  /* Grid: header a la izquierda, lista a la derecha */
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: clamp(1rem, 3vw, 2rem);
-  align-items: start;
+  max-width: 1000px;
+  width: 100%;
 }
 
-/* Header/Intro (columna izquierda) */
-.resource-header {
-  position: sticky;
-  top: 1rem; /* se “pega” al hacer scroll en desktop */
+
+.section-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.4);
+  margin-bottom: 2rem;
+  letter-spacing: .5px;
+  text-align: center;
+}
+
+.resources-grid {
   display: grid;
-  gap: .5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
-.resource-header h2 {
-  font-size: clamp(1.25rem, 1.5vw, 1.75rem);
+
+
+.resource-card .icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.75rem;
 }
-.subtitle {
-  color: #d1d9e6;
-  font-size: .95rem;
+
+.resource-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.resource-card p {
+  font-size: 0.9rem;
+  opacity: 0.85;
   line-height: 1.4;
 }
-
-/* Pill */
-.pill {
-  display: inline-block;
-  padding: .25rem .6rem;
-  border-radius: 999px;
-  font-size: .75rem;
-  background: #16a34a;
-  color: #fff;
-  letter-spacing: .3px;
-}
-
-/* Lista de recursos (columna derecha) */
-.resource-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;  /* dos columnas en desktop */
-  gap: .75rem;
-}
-
-/* Item */
-.resource-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .75rem;
-  padding: .9rem 1rem;
+.resource-card {
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem;
   border-radius: 12px;
-  background: rgba(255,255,255,.06);
-  text-decoration: none;
-  color: inherit;
-  transition: transform .15s ease, background .15s ease, outline-color .15s;
-  outline: 2px solid transparent;
-}
-.resource-item:hover {
-  transform: translateY(-1px);
-  background: rgba(255,255,255,.1);
-}
-.resource-item:focus-visible {
-  outline-color: #60a5fa;
-}
-
-/* Lado izquierdo del item */
-.resource-item .left {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: .75rem;
-  min-width: 0;
-}
-.emoji { font-size: 1.25rem; }
-.text { min-width: 0; display: grid; }
-.title {
-  font-weight: 600;
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.meta {
-  color: #c7d2fe;
-  font-size: .85rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Chevrón */
-.chev {
-  width: 22px;
-  height: 22px;
-  flex: 0 0 auto;
-  opacity: .8;
-}
-
-/* Footer opcional bajo la grid */
-.resource-footer {
-  grid-column: 1 / -1; /* ocupa el ancho completo */
-  display: flex;
-  justify-content: center;
-  margin-top: .5rem;
-}
-.cta {
-  color: #60a5fa;
-  text-decoration: none;
-  font-weight: 600;
-  padding: .6rem 1rem;
-  border-radius: 10px;
-  background: rgba(96,165,250,.12);
-}
-.cta:hover {
-  background: rgba(96,165,250,.18);
-}
-
-/* Responsivo */
-@media (max-width: 900px) {
-  .resource-card { grid-template-columns: 1fr; }
-  .resource-list { grid-template-columns: 1fr; } /* una columna en móvil */
-  .resource-header { position: static; }
-}
-
-/* Respeto por reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  .resource-item { transition: none; }
-}
-.btn-style {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white !important;
-  border-radius: 5px;
-  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,.3);
   cursor: pointer;
+  text-decoration: none; /* 🔹 Quita subrayado del enlace */
+  display: block; /* Hace que ocupe todo el área como tarjeta */
 }
-.btn-style:hover {
-  background-color: #0056b3;
+
+.resource-card:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.4);
+}
+
+.btn-more {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background-color: rgba(0, 102, 204, 0.85);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  font-family: Arial, Helvetica, sans-serif; /* 🔹 Aquí forzamos Arial */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-more:hover {
+  background-color: rgba(0, 102, 204, 1);
+  transform: translateY(-2px);
 }

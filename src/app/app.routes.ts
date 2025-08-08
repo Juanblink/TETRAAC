@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { BookComponent } from './components/videos/book/book.component';
+import { BlogArticulosComponent } from './components/videos/blog-articulos/blog-articulos.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },     // Página principal
-  { path: 'book', component: BookComponent }  // Página del libro
+  { path: 'book', component: BookComponent },  // Página del libro
+  { path: 'blog-articulos', component: BlogArticulosComponent }  // Página de blog/artículos
 ];
