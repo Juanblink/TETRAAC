@@ -1,71 +1,6 @@
-/* --- Importar la Fuente (añadir al <head> de tu HTML si no está ya) --- */
-/*
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-*/
-
-/* --- Estilos de la Sección de Servicios --- */
-.services-section {
-  /* --- Definición de variables de tu Hero Banner para consistencia --- */
-  --color-primary: #e60012;
-  --color-dark-accent: #1b024a;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  
-  /* --- Estilos aplicados --- */
-  font-family: var(--font-sans);
-  background-color: #F8F9FA; /* Fondo claro para contraste */
-  padding: 80px 20px;
-  text-align: center;
-}
-
-/* --- Encabezado de la Sección --- */
-.section-header {
-  max-width: 700px;
-  margin: 0 auto 60px auto;
-}
-
-.section-title {
-font-size: clamp(2rem, 8vw, 3.5rem);
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--color-text-main);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    margin-bottom: 1rem;
-    animation: fadeInUp 0.6s 0.6s backwards;
-
-    .highlight {
-      color: var(--color-primary);
-    }
-}
-
-.section-title .icon {
-  font-size: 3rem;
-  color: var(--color-primary); /* El ícono lleva el color primario (rojo) */
-}
-
-.section-subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
-    color: var(--color-text-light);
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 1.5rem auto 0;
-    animation: fadeInUp 0.6s 0.8s backwards;
-}
-
-/* --- Contenedor de las Tarjetas de Servicio (Grid Responsivo) --- */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* --- Estilo Individual de cada Tarjeta --- */
-/* =========================================================
-   Base tokens (ajusta a tu brand system)
-   ========================================================= */
+/* ================================
+   TOKENS BASE
+   ================================ */
 :root {
   --brand: #e60012;
   --brand-ink: #9e000c;
@@ -100,60 +35,173 @@ font-size: clamp(2rem, 8vw, 3.5rem);
   }
 }
 
-/* =========================================================
-   Grid responsivo para tarjetas (opcional)
-   ========================================================= */
+/* ================================
+   HERO — optimizado sin efectos pesados
+   ================================ */
+.hero-banner {
+  --color-primary: #e60012;
+  --color-dark-accent: #1b024a;
+  --color-text-light: #f5f5f7;
+  --color-text-main: #ffffff;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --transition-fast: 250ms ease-in-out;
+  --transition-medium: 400ms ease-in-out;
+
+  position: relative;
+  height: 100svh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--color-text-light);
+  font-family: var(--font-sans);
+
+  /* Fondo optimizado */
+background-image: url('../../../assets/services.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+
+  contain: paint;
+  content-visibility: auto;
+}
+
+.hero-banner::before,
+.hero-banner::after { content: none; }
+
+/* Contenido */
+.hero-banner .hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+  max-width: 850px;
+  animation: fadeIn 1s var(--transition-medium) forwards;
+  opacity: 0;
+}
+
+.hero-banner .logo-e {
+  width: clamp(80px, 10vw, 100px);
+  height: auto;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.6s 0.2s backwards;
+}
+
+/* Mantener título original */
+.hero-banner .hero-title {
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-main);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.6s 0.6s backwards;
+}
+.hero-banner .hero-title .highlight {
+  color: var(--color-primary);
+}
+
+.hero-banner .subtext {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--color-text-light);
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  animation: fadeInUp 0.6s 0.8s backwards;
+}
+
+/* ================================
+   SERVICES — optimizado sin efectos pesados
+   ================================ */
+.services-section {
+  --color-primary: #e60012;
+  --color-dark-accent: #1b024a;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  font-family: var(--font-sans);
+  background-image: url('../../../assets/services.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-section::before,
+.services-section::after { content: none; }
+.services-section > * { position: relative; z-index: 1; }
+
+/* Mantener título original */
+.section-title {
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-main);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.6s 0.6s backwards;
+  position: relative;
+  top: -100px; /* sube todo el bloque de encabezado */
+}
+.section-title .highlight {
+  color: var(--color-primary);
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--color-text-light);
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  animation: fadeInUp 0.6s 0.8s backwards;
+  position: relative;
+  top: -100px; /* sube todo el bloque de encabezado */
+
+}
+
+/* ================================
+   GRID Y TARJETAS DE SERVICES
+   ================================ */
 .services-grid {
   display: grid;
   gap: 22px;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
 }
+@media (min-width: 480px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 768px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1200px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
 
-/* =========================================================
-   Tarjeta
-   ========================================================= */
 .service-card {
   position: relative;
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: 12px;
-
   background: var(--surface);
   color: var(--ink);
   border-radius: var(--radius);
   border: 1px solid var(--border);
   padding: var(--card-pad);
-
   box-shadow: var(--elev-1);
   transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
   will-change: transform, box-shadow;
   text-align: left;
-  isolation: isolate; /* mejora sombras y overlays */
 }
-
 .service-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--elev-brand);
   border-color: rgba(230,0,18,.25);
 }
 
-/* Focus accesible (teclado): */
-.service-card:focus-within {
-  outline: none;
-  box-shadow: var(--elev-2);
-  border-color: rgba(230,0,18,.45);
-}
-.service-card:focus-within::after {
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: calc(var(--radius) + 4px);
-  pointer-events: none;
-  box-shadow: 0 0 0 2px rgba(255,255,255,.65), 0 0 0 6px rgba(230,0,18,.28);
-}
-
-/* Icono/emoji/logotipo del servicio (opcional) */
+/* Icono de servicio */
 .service-card__icon {
   width: 48px;
   height: 48px;
@@ -174,7 +222,6 @@ font-size: clamp(2rem, 8vw, 3.5rem);
   font-weight: 700;
   color: var(--brand);
 }
-
 .service-card p {
   margin: 0;
   font-size: 0.98rem;
@@ -182,13 +229,12 @@ font-size: clamp(2rem, 8vw, 3.5rem);
   color: var(--muted-ink);
 }
 
-/* CTA: botón/link primario dentro de la card */
+/* Botón CTA */
 .service-card .card-cta {
   margin-top: 14px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-
   font-weight: 600;
   text-decoration: none;
   color: var(--surface);
@@ -199,18 +245,13 @@ font-size: clamp(2rem, 8vw, 3.5rem);
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
   box-shadow: 0 4px 10px rgba(230,0,18,.25);
 }
-
 .service-card .card-cta:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 20px rgba(230,0,18,.30);
   background: linear-gradient(180deg, var(--brand), var(--brand-ink));
 }
 
-.service-card .card-cta:focus-visible {
-  outline: var(--ring);
-}
-
-/* Link secundario con flecha (ghost) */
+/* Link secundario */
 .service-card .card-link {
   margin-top: 10px;
   display: inline-flex;
@@ -227,97 +268,4 @@ font-size: clamp(2rem, 8vw, 3.5rem);
   gap: 10px;
   color: var(--brand-ink);
   border-color: rgba(230,0,18,.6);
-}
-
-/* Estado destacado (opcional) */
-.service-card.--featured {
-  border-width: 2px;
-  border-color: rgba(230,0,18,.35);
-  box-shadow: var(--elev-brand);
-}
-.services-grid {
-  display: grid;
-  gap: 22px;
-  grid-template-columns: 1fr; /* default: 1 columna */
-  align-items: stretch;
-}
-
-@media (min-width: 480px) {  /* móviles anchos */
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 768px) {  /* tablets */
-  .services-grid { grid-template-columns: repeat(3, 1fr); }
-}
-@media (min-width: 1200px) { /* desktop grande */
-  .services-grid { grid-template-columns: repeat(4, 1fr); }
-}
-
-.service-card { height: 100%; }
-
-/* Animación reducida si el usuario lo pide */
-@media (prefers-reduced-motion: reduce) {
-  .service-card,
-  .service-card .card-cta,
-  .service-card .card-link {
-    transition: none !important;
-    transform: none !important;
-  }
-}
-
-/* --- Sección de Servicios --- */
-.services-section {
-  --color-primary: #e60012;
-  --color-dark-accent: #1b024a;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-  font-family: var(--font-sans);
-  background-color: #F8F9FA;
-  padding: 80px 20px;
-  text-align: center;
-  position: relative; /* Necesario para que ::before se posicione dentro */
-  overflow: hidden; /* Evita que el blur sobresalga */
-}
-
-/* --- Fondo con imagen y blur --- */
-
-/* --- Sección de Servicios --- */
-.services-section {
-  --color-primary: #e60012;
-  --color-dark-accent: #1b024a;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-  font-family: var(--font-sans);
-  background-color: #F8F9FA;
-  padding: 80px 20px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-/* --- Fondo con imagen y blur --- */
-.services-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("https://i.ibb.co/0p4FDqrQ/2-cerrar-personas-estudiando-interiores.jpg");
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px) brightness(0.5);
-  transform: scale(1.05);
-  z-index: 0;
-}
-
-/* --- Capa azul semitransparente --- */
-.services-section::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 30, 60, 0.5); /* Azul oscuro con opacidad */
-  z-index: 1;
-}
-
-/* --- Asegurar que el contenido esté encima del fondo y la capa azul --- */
-.services-section > * {
-  position: relative;
-  z-index: 2;
 }

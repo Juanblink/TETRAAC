@@ -1,15 +1,16 @@
 .navbar {
+  font-family: Arial, Helvetica, sans-serif; /* 🔹 Forzar Arial */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: linear-gradient(to right, #0b071b, #130c2e); // degradado oscuro
+  background: linear-gradient(to right, #0b071b, #130c2e); /* degradado oscuro */
   border-bottom: 2px solid #e60012;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); // sombra inferior
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 
   .navbar-logo {
     font-size: 1.8rem;

@@ -1,3 +1,4 @@
+/* --- Sección Resources (optimizada) --- */
 .resources-section {
   position: relative;
   min-height: 300px;
@@ -5,23 +6,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: clip; /* o hidden para compatibilidad antigua */
-  background: none;
+  overflow: hidden;
+  
+  /* Fondo directo, sin pseudo-elementos */
+background-image: url('../../../assets/resources.jpg'); /* ruta relativa para GH Pages */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.resources-section::before {
-  content: "";
-  position: absolute;
-  inset: -16px;
-  background: 
-    linear-gradient(rgba(2, 37, 71, 0.541), rgba(3, 56, 109, 0.4)), /* capa azul */
-    url('https://i.ibb.co/39mXz0cV/ordinateur-livres-poste-de-travai.jpg') 
-    center/cover no-repeat;
-  filter: blur(12px);
-  z-index: 0;
-  pointer-events: none;
-}
-
+/* Overlay */
 .overlay {
   position: relative;
   z-index: 1;
@@ -32,7 +26,7 @@
   width: 100%;
 }
 
-
+/* Título */
 .section-title {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2.5rem;
@@ -44,29 +38,14 @@
   text-align: center;
 }
 
+/* Grid */
 .resources-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 
-
-.resource-card .icon {
-  font-size: 2rem;
-  display: block;
-  margin-bottom: 0.75rem;
-}
-
-.resource-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.resource-card p {
-  font-size: 0.9rem;
-  opacity: 0.85;
-  line-height: 1.4;
-}
+/* Tarjeta */
 .resource-card {
   background: rgba(255,255,255,0.1);
   padding: 1.5rem;
@@ -76,16 +55,31 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0,0,0,.3);
   cursor: pointer;
-  text-decoration: none; /* 🔹 Quita subrayado del enlace */
-  display: block; /* Hace que ocupe todo el área como tarjeta */
+  text-decoration: none;
+  display: block;
 }
-
 .resource-card:hover {
   background: rgba(255,255,255,0.2);
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,.4);
 }
 
+.resource-card .icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.resource-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.resource-card p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+/* Botón */
 .btn-more {
   display: inline-block;
   margin-top: 1rem;
@@ -96,10 +90,9 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 0.9rem;
-  font-family: Arial, Helvetica, sans-serif; /* 🔹 Aquí forzamos Arial */
+  font-family: Arial, Helvetica, sans-serif;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 .btn-more:hover {
   background-color: rgba(0, 102, 204, 1);
   transform: translateY(-2px);
