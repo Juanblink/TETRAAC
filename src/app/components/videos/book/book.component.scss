@@ -150,3 +150,222 @@ body {
   &.link { padding: 0; color: #0b4bd8; font-weight: 600; }
   &.pill { border-radius: 999px; padding: .55rem .9rem; }
 }
+/* ======= ESTILOS GENERALES ======= */
+body {
+  background: #fff;
+  color: #333;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* ======= SECCIÓN ABOUT ======= */
+.about {
+  padding: 1rem 0; /* margen reducido */
+  display: grid;
+  gap: 1rem;
+}
+
+.about h2 {
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+  color: #222;
+}
+
+.about p {
+  color: #555;
+  margin: 0 0 0.5rem;
+  line-height: 1.5;
+}
+
+.bullet-check {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.bullet-check li {
+  position: relative;
+  padding-left: 1.3rem;
+  color: #555;
+}
+
+.bullet-check li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  background: #e60012;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ======= CARD "IDEAL PARA" ======= */
+.card {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+
+.card h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.icon-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.icon-list li {
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ======= CONTENIDO (TOC) ======= */
+.toc {
+  padding: 1rem 0;
+}
+
+.toc h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.4rem;
+  color: #222;
+}
+
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+
+.toc-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-grid li {
+  position: relative;
+  padding-left: 0.8rem;
+  color: #555;
+}
+
+.toc-grid li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #e60012;
+}
+
+/* ======= QUOTES ======= */
+.quotes {
+  padding: 1rem 0;
+}
+
+.quotes h2 {
+  margin: 0 0 0.8rem;
+  color: #222;
+}
+
+.quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.5rem;
+}
+
+.quote {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.8rem;
+  color: #555;
+  font-style: italic;
+}
+
+.quote footer {
+  margin-top: 0.4rem;
+  color: #777;
+  font-style: normal;
+}
+
+/* ======= FAQ ======= */
+.faq {
+  padding: 1rem 0;
+}
+
+.faq h2 {
+  margin: 0 0 0.8rem;
+  color: #222;
+}
+
+.faq details {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #222;
+}
+
+.faq p {
+  margin-top: 0.4rem;
+  color: #555;
+}
+
+/* ======= FOOTER ======= */
+.book-footer {
+  border-top: 1px solid #ddd;
+  padding: 0.6rem 0;
+  background: #f8f8f8;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  color: #555;
+}
+
+.footer-links {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.footer-links a {
+  color: #555;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #e60012;
+}
