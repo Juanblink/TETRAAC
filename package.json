@@ -7,7 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:TETRAAC": "node dist/tetraac/server/server.mjs"
+    "serve:ssr:TETRAAC": "node dist/tetraac/server/server.mjs",
+      "deploy": "ng build --configuration production --base-href /TETRAAC/ && npx angular-cli-ghpages --dir=dist/tetraac/browser"
+
+    
   },
   "private": true,
   "dependencies": {
