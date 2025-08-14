@@ -1,4 +1,4 @@
-<!doctype html>
+export default `<!doctype html>
 <html lang="en" data-beasties-container="">
 <head>
   <meta charset="utf-8">
@@ -9,5 +9,6 @@
 <style>html,body{margin:0;padding:0;overflow-x:hidden}</style><link rel="stylesheet" href="styles-MP2EYHU3.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-MP2EYHU3.css"></noscript></head>
 <body ngcm="">
   <app-root></app-root>
-<script src="polyfills-B6TNHZQ6.js" type="module"></script><script src="main-LR3CUXC5.js" type="module"></script></body>
+<script src="polyfills-B6TNHZQ6.js" type="module"></script><script src="main-73UI55L2.js" type="module"></script></body>
 </html>
+`;
